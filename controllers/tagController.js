@@ -16,7 +16,7 @@ export const createTag = catchAsync(async (req, res) => {
 });
 
 export const getTags = catchAsync(async (req, res, next) => {
-  const tags = await Tag.find().limit(10);
+  const tags = await Tag.find().limit(req.query.limit);
 
   res.status(200).json(tags);
 });
